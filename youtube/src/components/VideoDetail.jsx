@@ -4,12 +4,7 @@ import ReactPlayer from "react-player";
 import { Typography, Box, Stack } from "@mui/material";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 
-import { Videos, Loader } from "./";
-import {
-  fetchFromAPI,
-  getVideoDetail,
-  getVideoDetailApi,
-} from "../utils/fetchFromAPI";
+import { Videos } from "./";
 import {
   getAllVideoByTypeId,
   getVideoDetailById,
@@ -68,7 +63,6 @@ const VideoDetail = () => {
       setVideos(listVideoRelate);
     });
 
-    // setVideoDetail(item);
   }, [id]);
 
   useEffect(() => {
@@ -102,22 +96,16 @@ const VideoDetail = () => {
     });
   };
    
-//"http://dergipark.org.tr/assets/app/images/buddy_sample.png"
-  // if(!videoDetail) return <Loader />;
 
   if (videoDetail) {
-    // let {dataVideo, dataComment} = videoDetail
+    
     const { video_name, description, views, url } = videoDetail;
-    // const {content} = dataComment;
-    // let user = dataComment.user;
-    // const {full_name, avatar} = user;
 
     return (
       <Box className="p-5" minHeight="95vh">
         <Stack direction={{ xs: "column", md: "row" }}>
           <Box flex={1}>
             <Box sx={{ width: "100%", position: "sticky", top: "86px" }}>
-              {/* video main */}
               <ReactPlayer
                 url={url}
                 className="react-player"
@@ -185,7 +173,7 @@ const VideoDetail = () => {
                 {description}
               </div>
 
-              {/* comment */}
+              
               <div className="row d-flex justify-content-center">
                 <div className="col-md-12">
                   <div className="card border-0">
@@ -228,7 +216,7 @@ const VideoDetail = () => {
                           onClick={async () => {
                             let content =
                               document.getElementById("textAreaExample").value;
-                            // let currentDate=getCurrentDate();
+                           
                             let data = {
                               content,
                               video_id: +id,
@@ -237,7 +225,7 @@ const VideoDetail = () => {
                             let comment = await createComment(data);
                             if (comment) {
                               alert("Bạn đã tạo comment thành công");
-                              //  setComment(comment);
+                            
 
                             }
                           }}
@@ -257,28 +245,7 @@ const VideoDetail = () => {
                       className="card-body text-white"
                       style={{ backgroundColor: "#000" }}
                     >
-                      {/* <div className="d-flex flex-start ">
-                        <img
-                          className="rounded-circle shadow-1-strong me-3"
-                          src={
-                            "http://dergipark.org.tr/assets/app/images/buddy_sample.png"
-                          }
-                          alt="avatar"
-                          width={60}
-                          height={60}
-                        />
-
-                        <p className="mb-4 pb-2">
-                          <h6 className="fw-bold text-white mb-1">
-                            {"Phạm vĩnh đạt"}
-                          </h6>
-                          {"hay lắm"}
-
-                          <div className=" d-flex justify-content-start ">
-                            <p>Create at: </p>
-                          </div>
-                        </p>
-                      </div> */}
+                     
                       {handleRenderComment()}
                     </div>
                   </div>
@@ -293,7 +260,7 @@ const VideoDetail = () => {
             justifyContent="center"
             alignItems="center"
           >
-            {/* list video random */}
+            
             <Typography color="#fff" variant="h6" fontWeight="bold" p={2}>
               {"Related videos:"}
             </Typography>

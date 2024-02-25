@@ -12,7 +12,6 @@ const ChannelCard = (props) => {
   useEffect(()=>{
     (async ()=>{
       let data=await getUserById(id);
-      console.log(data);
       setInfUser(data);
 
     })()

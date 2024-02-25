@@ -25,14 +25,12 @@ const InfoUser = () => {
   useEffect(() => {
     (async () => {
       let data = await getUserById(id);
-      console.log(data);
       setChannelDetail(data);
       setInputValues({ full_name: data.full_name, email: data.email });
       setAvatar(data.avatar);
     })();
   }, [id]);
 
-  console.log(inputValues);
 
   const handleOnChange = (event) => {
     const { name, value } = event.target;
@@ -70,7 +68,6 @@ const InfoUser = () => {
         </div>
       </nav>
       <div className="tab-content mt-3" id="nav-tabContent">
-        {/* update info user */}
         <div
           className="tab-pane fade show active"
           id="nav-home"
@@ -183,7 +180,6 @@ const InfoUser = () => {
           </div>
         </div>
 
-        {/* upload video */}
         <div
           className="tab-pane fade"
           id="nav-profile"

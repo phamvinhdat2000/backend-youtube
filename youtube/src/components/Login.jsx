@@ -1,29 +1,9 @@
-import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
-import { Box, CardMedia } from "@mui/material";
-
-import { Videos, ChannelCard } from ".";
-import {
-  fetchFromAPI,
-  loginApi,
-  loginFacebookApi,
-} from "../utils/fetchFromAPI";
+import React  from "react";
 import ReactFacebookLogin from "react-facebook-login";
-import { FACE_APP_ID } from "../utils/constants";
 import { login, loginByFb } from "../services/auth.service";
 import { setLocalStorage } from "../utils";
-import { getUserById, getUserByToken } from "../services/user.service";
-import { useDispatch } from "react-redux";
-import { changeStatusLogin, createUserDetail } from "../redux/slices/user.slice";
 
 const Login = () => {
-  const [channelDetail, setChannelDetail] = useState();
-  const [videos, setVideos] = useState(null);
-
-  const { id } = useParams();
-  const dispatch = useDispatch();
-
-  useEffect(() => {}, []);
 
   return (
     <div className="p-5 " style={{ minHeight: "100vh" }}>

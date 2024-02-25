@@ -2,17 +2,13 @@ import { Avatar, Stack } from "@mui/material";
 import { Link, useNavigate } from "react-router-dom";
 
 import { logo } from "../utils/constants";
-import { ChannelCard, SearchBar } from "./";
+import { SearchBar } from "./";
 import { getLocalStorage, removeLocalStorage } from "../utils";
 import { useEffect, useState } from "react";
 import { getUserById, getUserByToken } from "../services/user.service";
 import { logout } from "../services/auth.service";
 import { useDispatch, useSelector } from "react-redux";
 import { changeStatusLogin, createUserDetail } from "../redux/slices/user.slice";
-
-
-// nếu có token -> hiện avatar
-// nếu không -> hiện login/Sign up
 
 const Navbar = () => {
   const navigate=useNavigate();
@@ -21,7 +17,6 @@ const Navbar = () => {
   const dispatch=useDispatch();
   let token =getLocalStorage("ACCESS_TOKEN");
 
-  console.log(token);
   useEffect(()=>{
     if(!userInf?.user_id){
       (async()=>{

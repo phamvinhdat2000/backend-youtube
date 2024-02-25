@@ -15,7 +15,6 @@ import {
   getVideoLatest,
 } from "../services/video.service";
 import { getLocalStorage, removeLocalStorage } from "../utils";
-import { PageviewRounded } from "@mui/icons-material";
 
 const Feed = () => {
   const [selectedCategory, setSelectedCategory] = useState("All");
@@ -26,12 +25,6 @@ const Feed = () => {
   const page = parseInt(query.get("page") || "1", 10);
   let param = useParams();
   let videoTypeId = param.videoTypeId;
-  console.log("get params:", videoTypeId);
-//   <PaginationItem
-//   component={Link}
-//   to={`/${item.page === 1 ? "" : `?page=${item.page}`}`}
-//   {...item}
-// />
  const urlToPage=(item,videoTypeId)=>{
     let url="";
     if(item.page==1 && !videoTypeId){
@@ -73,12 +66,6 @@ const Feed = () => {
     }
 
   }, [videoTypeId,page]);
-  // useEffect(()=>{
-  //   getAllVideoPage(page).then((rs)=>{
-  //     setVideosPerPage(rs);
-  //   })
-  // },[page])
-
   return (
     <Stack sx={{ flexDirection: { sx: "column", md: "row" } }}>
       <Box

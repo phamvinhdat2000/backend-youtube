@@ -4,11 +4,9 @@ import {
   createMessage,
   deleteAllMess,
   getAllMessageByAdmin,
-  getAllMessageByUser,
-  getAllRoomIdByAdmin,
+  getAllMessageByUser
 } from "../services/message.service";
 import { handleTime } from "./VideoDetail";
-import { Hidden } from "@mui/material";
 
 const Footer = () => {
   const userInf = useSelector((state) => state.userReducer.userDetail);
@@ -19,7 +17,7 @@ const Footer = () => {
     if (userInf.role == "user") {
       (async () => {
         let dataMess = await getAllMessageByUser(userInf?.user_id);
-        console.log(dataMess);
+        
         if (dataMess) {
           setMessages(dataMess);
         }
@@ -158,28 +156,7 @@ const Footer = () => {
           </button>
         </div>
         <ol className="discussion" id="chat-noiDung">
-          {/* <li className="other">
-            <div className="avatar">
-              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHTEFMnih7ZgOPIZej2dclAphUeOhVR1OIFaPoYCOqm9fY1Fv7" />
-            </div>
-            <div className="messages">
-              <p>
-                yeah, they do early flights cause they connect with big
-                airports. they wanna get u to your connection
-              </p>
-              <time dateTime="2009-11-13T20:00">Timothy • 51 min</time>
-            </div>
-          </li>
-          <li className="self">
-            <div className="avatar">
-              <img src="https://amp.businessinsider.com/images/5947f16889d0e20d5e04b3d9-750-562.jpg" />
-            </div>
-            <div className="messages">
-              <p>That makes sense.</p>
-              <p>It's a pretty small airport.</p>
-              <time dateTime="2009-11-13T20:14">37 mins</time>
-            </div>
-          </li> */}
+         
           {renderMess(messages)}
         </ol>
         <div className="chatBottom">
@@ -228,10 +205,6 @@ const Footer = () => {
       </div></>
         :""
       }
-      {/* <button className="open-button" onClick={() =>
-        showChat("block")}>
-        <i className="fa fa-comments" aria-hidden="true" />
-      </button> */}
       
     </div>
   );

@@ -1,19 +1,9 @@
-import React, { useState, useEffect } from "react";
-import { useNavigate, useParams } from "react-router-dom";
-import { Box, CardMedia } from "@mui/material";
-
-import { Videos, ChannelCard } from ".";
-import { fetchFromAPI, signUpApi } from "../utils/fetchFromAPI";
+import React from "react";
+import { useNavigate} from "react-router-dom";
 import { signUp } from "../services/auth.service";
 
 const SignUp = () => {
-  const [channelDetail, setChannelDetail] = useState();
-  const [videos, setVideos] = useState(null);
  const navigate=useNavigate();
-  const { id } = useParams();
-
-  useEffect(() => {}, []);
-
   return (
     <div className="p-5 " style={{ minHeight: "100vh" }}>
       <div className=" d-flex justify-content-center">

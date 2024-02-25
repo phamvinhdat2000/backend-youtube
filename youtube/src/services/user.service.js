@@ -4,7 +4,7 @@ import { aixosWithAuth, axiosWithoutAuth } from "./config.service";
 export const updateUser = async (id,data) => {
     try {
       console.log(data);
-      const resp = await axiosWithoutAuth({
+      const resp = await aixosWithAuth({
         method:"post",
         url:`/user/${id}`,
         data:data,

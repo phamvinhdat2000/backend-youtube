@@ -1,14 +1,10 @@
 import React from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { Typography, Card, CardContent, CardMedia } from "@mui/material";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 
 import {
-  demoThumbnailUrl,
-  demoVideoUrl,
-  demoVideoTitle,
-  demoChannelUrl,
-  demoChannelTitle,
+  demoVideoUrl
 } from "../utils/constants";
 
 const VideoCard = ({ video }) => {
