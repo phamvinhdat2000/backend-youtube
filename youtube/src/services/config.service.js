@@ -1,9 +1,8 @@
 import axios from "axios";
 import { getLocalStorage, removeLocalStorage, setLocalStorage } from "../utils";
-// import { getLocalStorage } from "src/utils";
-// import { ACCESS_TOKEN } from "src/constants";
 
-const BASE_URL="http://localhost:8080";
+
+const BASE_URL="http://103.82.135.231:8080";
 
 export const axiosWithoutAuth=axios.create({
     baseURL:BASE_URL,
@@ -32,7 +31,7 @@ aixosWithAuth.interceptors.response.use(
         const originalConfig=error.config;
         if(error.response && error.response.status===417){
             try {
-               const result=await aixosWithAuth.post("http://localhost:8080/auth/refresh-tokens",{
+               const result=await aixosWithAuth.post("http://103.82.135.231:8080/auth/refresh-tokens",{
                 refresh_token:getLocalStorage("REFRESH_TOKEN")
                });
                console.log(result);

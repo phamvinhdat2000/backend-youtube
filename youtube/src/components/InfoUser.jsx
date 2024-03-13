@@ -1,13 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate, useParams } from "react-router-dom";
-import { Box, CardMedia } from "@mui/material";
-
-import { Videos, ChannelCard } from ".";
-
+import { useParams } from "react-router-dom";
 import ReactPlayer from "react-player";
 import {
   getUserById,
-  updateAvatar,
   updateUser,
 } from "../services/user.service";
 import { uploadInfVideo, uploadVideo } from "../services/video.service";
@@ -18,9 +13,7 @@ const InfoUser = () => {
     full_name: "",
     email: "",
   });
-  const [videos, setVideos] = useState(null);
   const [avatar, setAvatar] = useState(null);
-  const navigate = useNavigate();
   const { id } = useParams();
   useEffect(() => {
     (async () => {
@@ -89,6 +82,7 @@ const InfoUser = () => {
                 }
               />
               <input className="form-control" type="file" id="formFile" />
+              <p className="text-danger mt-2">File phải là các định dạng sau: .jpg,.png,.jpeg và phải dưới 3Mb</p>
             </div>
             <div className=" col-10">
               <form className="row g-3 text-white">
@@ -197,6 +191,7 @@ const InfoUser = () => {
                 width="100%"
               />
               <input className="form-control" type="file" id="formFile1" />
+              <p className="text-danger mt-2">*(bắt buộc): File phải là các định dạng sau: .jpg,.png,.jpeg và phải dưới 3Mb</p>
             </div>
             <div className=" col-6">
               <form className="row g-3 text-white">
@@ -282,6 +277,7 @@ const InfoUser = () => {
 
               <input className="form-control" type="file" id="formFile2" />
               <ReactPlayer url={`null`} className="react-player" controls />
+              <p className="text-danger mt-2">*(bắt buộc): File phải là định dạng sau: .mp4 và phải dưới 15Mb</p>
             </div>
           </div>
         </div>

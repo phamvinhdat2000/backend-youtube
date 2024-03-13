@@ -57,7 +57,7 @@ export class UserService {
             user_id: id,
           },
           data: {
-            avatar: `http://localhost:8080/${file.filename}`,
+            avatar: `http://103.82.135.231:8080/${file.filename}`,
             email,
             full_name,
           },

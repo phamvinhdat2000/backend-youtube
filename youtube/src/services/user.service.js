@@ -20,7 +20,7 @@ export const updateUser = async (id,data) => {
   };
   export const getUserByToken = async (token) => {
     try {
-      const resp = await axios.get('http://localhost:8080/user/token', { params: { accessToken: token } })
+      const resp = await axios.get('http://103.82.135.231:8080/user/token', { params: { accessToken: token } })
       console.log(resp);
       return resp.data;
     } catch (error) {

@@ -10,7 +10,6 @@ export class VideoService {
   async getAllVideo(): Promise<Video[]> {
     try {
       let data = await this.prisma.video.findMany();
-
       return data;
     } catch (error) {
       throw new HttpException('Server Error', HttpStatus.INTERNAL_SERVER_ERROR);
@@ -166,7 +165,7 @@ export class VideoService {
         data: {
           video_name,
           description,
-          thumbnail: `http://localhost:8080/${file.filename}`,
+          thumbnail: `http://103.82.135.231:8080/${file.filename}`,
           views: 0,
           source: 'youtube.com',
           user_id: id,
@@ -199,7 +198,7 @@ export class VideoService {
             video_id: checkVideo.video_id,
           },
           data: {
-            url: `http://localhost:8080/${file.filename}`,
+            url: `http://103.82.135.231:8080/${file.filename}`,
           },
         });
         if (videoUpload) {
